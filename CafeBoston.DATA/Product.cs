@@ -12,7 +12,7 @@ namespace CafeBoston.DATA
         public decimal UnitPrice { get; set; }
         public override string ToString()
         {
-            return base.ToString();
+            return $"{ProductName} ({UnitPrice:c2})";
         }
     }
 }

@@ -11,14 +11,12 @@ namespace CafeBoston.DATA
         public int TableNo { get; set; }
         public OrderState State { get; set; }
         public decimal PaidAmount { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public DateTime? StartTime { get; set; } = DateTime.Now;
+        public DateTime? EndTime { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
 
-        public readonly string TotalPriceTRY;
-        public decimal TotalPrice()
-        {
-            return 0;
-        }
+        public string TotalPriceTRY => TotalPrice().ToString("c2");
+        public decimal TotalPrice() => OrderDetails.Sum(x => x.TotalPrice());
+        
     }
 }
