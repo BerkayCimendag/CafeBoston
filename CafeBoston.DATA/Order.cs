@@ -13,7 +13,7 @@ namespace CafeBoston.DATA
         public decimal PaidAmount { get; set; }
         public DateTime? StartTime { get; set; } = DateTime.Now;
         public DateTime? EndTime { get; set; }
-        public List<OrderDetail> OrderDetails { get; set; }
+        public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 
         public string TotalPriceTRY => TotalPrice().ToString("c2");
         public decimal TotalPrice() => OrderDetails.Sum(x => x.TotalPrice());
